@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr Haris Rehman & Fatima Urooj — Walima</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Josefin+Sans:wght@300;400;600&family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<style>
+:root{--bg:#2a0a16;--bg2:#531a2f;--gold:#f6dfa6;--gold2:#d9a441;--soft:rgba(246,223,166,.76);--ink:#2a0a16;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:dark;scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--gold);font-family:'Josefin Sans',system-ui,sans-serif;text-align:center;overflow-x:hidden}
+body.lock{overflow:hidden;height:100vh}
+section{max-width:600px;margin:0 auto;padding:70px 26px}
+section.alt{background:linear-gradient(180deg,transparent,rgba(217,164,65,.09),transparent)}
+.tag{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+h2{font-family:'Cormorant Garamond',serif;font-size:34px;letter-spacing:.06em;font-weight:600;margin-bottom:14px}
+h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;letter-spacing:.04em;margin:8px 0}
+p{line-height:1.9;color:var(--soft)}
+.orn{color:var(--gold2);margin:16px 0;font-size:18px}
+.ar{font-family:'Amiri',serif;font-size:clamp(20px,5.4vw,28px);line-height:2.1}
+.script{font-family:'Great Vibes',cursive;line-height:1.1}
+/* envelope cover */
+#cover{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:radial-gradient(circle at 50% 35%,var(--bg2),var(--bg) 72%);padding:env(safe-area-inset-top,0px) 20px env(safe-area-inset-bottom,0px);cursor:pointer;transition:opacity 1.2s .9s,visibility 1.2s .9s}
+#cover.gone{opacity:0;visibility:hidden}
+.env{position:relative;width:min(300px,78vw);height:min(200px,52vw);margin:10px 0 24px;perspective:900px;filter:drop-shadow(0 18px 28px rgba(0,0,0,.5))}
+.env .back{position:absolute;inset:0;background:#7a2a45;border-radius:6px}
+.env .letter{position:absolute;left:8%;right:8%;top:6%;height:84%;background:linear-gradient(#fff6e0,#f6dfa6);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink);transition:transform 1s .5s ease}
+.env .letter b{font-family:'Great Vibes',cursive;font-size:clamp(26px,8vw,34px);font-weight:400}
+.env .letter span{font-size:10px;letter-spacing:.3em;text-transform:uppercase}
+.env .front{position:absolute;inset:0;background:linear-gradient(135deg,#9c3a5a,#6d2340);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:6px}
+.env .flap{position:absolute;left:0;right:0;top:0;height:60%;background:linear-gradient(#b04668,#8a2f4d);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s ease,z-index 0s .4s;z-index:3}
+.env .dot{position:absolute;left:50%;top:52%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fbe7a8,var(--gold2) 60%,#8a6218);z-index:4;display:flex;align-items:center;justify-content:center;font-family:'Great Vibes',cursive;color:var(--ink);font-size:20px;transition:opacity .3s}
+#cover.gone .flap{transform:rotateX(180deg);z-index:0}
+#cover.gone .dot{opacity:0}
+#cover.gone .letter{transform:translateY(-62%)}
+.open{display:inline-flex;align-items:center;gap:10px;padding:13px 30px;border:1.5px solid var(--gold2);border-radius:6px;color:var(--gold);font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:12px;animation:glow 2.2s infinite}
+@keyframes glow{50%{box-shadow:0 0 18px rgba(217,164,65,.55)}}
+.sub{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);margin-top:4px}
+/* hero & content */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.names{font-size:clamp(50px,14vw,84px);margin:10px 0}
+.amp{font-size:28px}
+.date{display:inline-block;border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:8px 22px;font-size:22px;font-weight:600;letter-spacing:.08em;margin:12px 0}
+.card{border:1px solid var(--gold2);padding:30px 18px;margin-top:18px;border-radius:120px 120px 8px 8px;background:linear-gradient(180deg,rgba(217,164,65,.14),transparent 60%)}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:8px 14px;text-align:left;border-bottom:1px dashed rgba(217,164,65,.4)}
+.row:last-child{border:0}
+.row .script{font-size:27px}
+.row b{font-size:20px;font-weight:600}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.cd div{border:1px solid var(--gold2);padding:16px 4px;border-radius:50px 50px 6px 6px}
+.cd b{display:block;font-family:'Cormorant Garamond',serif;font-size:36px}
+.cd span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+a.tel{color:var(--gold);text-decoration:none;font-weight:600;letter-spacing:.06em;display:block;margin:8px 0;font-size:20px}
+.fade{opacity:0;transform:translateY(20px);transition:opacity 1s,transform 1s}
+.fade.on{opacity:1;transform:none}
+footer{padding:50px 20px 80px;color:var(--soft);font-size:13px;letter-spacing:.22em}
+</style>
+</head>
+<body class="lock">
+
+<div id="cover">
+  <div class="tag" style="margin:0">You are invited</div>
+  <div class="env">
+    <div class="back"></div>
+    <div class="letter"><b>Haris &amp; Fatima</b><span>Walima</span></div>
+    <div class="front"></div>
+    <div class="flap"></div>
+    <div class="dot">H&amp;F</div>
+  </div>
+  <div class="open">✉ Tap to open</div>
+</div>
+
+<section id="hero">
+  <div class="tag fade">The Walima Celebration</div>
+  <div class="script names fade">Dr Haris<br><span class="amp" style="font-family:'Josefin Sans',sans-serif">&amp;</span><br>Fatima</div>
+  <p class="fade" style="letter-spacing:.14em;text-transform:uppercase;font-size:14px">Dr Haris Rehman &amp; Fatima Urooj</p>
+  <div class="orn">✦</div>
+  <div class="ar fade">بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</div>
+  <p class="fade" style="margin-top:12px;font-size:15px">May Allah bless you, shower His blessings upon you, and unite you both in goodness.</p>
+</section>
+
+<section class="alt">
+  <div class="tag fade">Save the date</div>
+  <h2 class="fade">Join Us</h2>
+  <p class="fade">Walima</p>
+  <div class="date fade">28 November 2026</div>
+  <p class="fade">Saturday · Dinner 7:30 PM</p>
+</section>
+
+<section>
+  <div class="tag fade">Invitation</div>
+  <h2 class="fade">Dear Family &amp; Friends</h2>
+  <p class="fade">Mrs. Rafiq Ur Rehman Bhatti requests the honour of your presence at the Walima reception of their beloved son <b style="color:var(--gold)">Dr Haris Rehman</b> &amp; <b style="color:var(--gold)">Fatima Urooj</b>. Join us for dinner as we celebrate this blessed union with your prayers and good wishes.</p>
+</section>
+
+<section class="alt">
+  <div class="tag fade">Celebrating together</div>
+  <h2 class="fade">Walima</h2>
+  <div class="card fade">
+    <h3>Saturday, 28 November 2026</h3>
+    <div class="row"><span class="script">Dinner</span><b>7:30 PM</b></div>
+  </div>
+</section>
+
+<section>
+  <div class="tag fade">Counting down</div>
+  <h2 class="fade">Until We Celebrate</h2>
+  <div class="cd fade">
+    <div><b id="d">0</b><span>Days</span></div>
+    <div><b id="h">0</b><span>Hours</span></div>
+    <div><b id="m">0</b><span>Min</span></div>
+    <div><b id="s">0</b><span>Sec</span></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="tag fade">Where to find us</div>
+  <h2 class="fade">The Venue</h2>
+  <p class="fade">Walima · 28 Nov</p>
+  <h3 class="fade">Shahjahan Bouquet Hall</h3>
+  <p class="fade">(Food Club)<br>Ahmed Pur East</p>
+</section>
+
+<section>
+  <div class="tag fade">With love</div>
+  <h2 class="fade">Your Blessings</h2>
+  <p class="fade">Your presence and your duas are the greatest gift we could ask for.</p>
+</section>
+
+<section class="alt">
+  <div class="tag fade">Awaiting eyes</div>
+  <h2 class="fade">Hosts &amp; Contact</h2>
+  <h3 class="fade">Mrs. Rafiq Ur Rehman Bhatti</h3>
+  <p class="fade">&amp; Family</p>
+  <div class="fade" style="margin-top:12px">
+    <a class="tel" href="tel:03037370181">0303 7370181</a>
+    <a class="tel" href="tel:03001776166">0300 1776166</a>
+  </div>
+</section>
+
+<footer>
+  <div class="script" style="font-size:44px;letter-spacing:0">Haris &amp; Fatima</div>
+  <p style="margin:6px 0 18px;letter-spacing:.1em;font-size:13px">Thank you for being part of our story</p>
+  <div class="orn">✦</div>
+  <div class="ar" style="font-size:26px">آمين</div>
+  28 · 11 · 2026
+</footer>
+
+<script>
+(function(){
+  var target=new Date('2026-11-28T19:30:00+05:00').getTime();
+  function tick(){
+    var s=Math.floor(Math.max(0,target-Date.now())/1000);
+    document.getElementById('d').textContent=Math.floor(s/86400);
+    document.getElementById('h').textContent=Math.floor(s%86400/3600);
+    document.getElementById('m').textContent=Math.floor(s%3600/60);
+    document.getElementById('s').textContent=s%60;
+  }
+  tick();setInterval(tick,1000);
+
+  var els=document.querySelectorAll('.fade');
+  function reveal(){
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}})},{threshold:.15});
+      els.forEach(function(el){io.observe(el)});
+    }else{els.forEach(function(el){el.classList.add('on')})}
+  }
+
+
+
+  /* one-time opening sound: plays once when the cover is tapped, then fades out */
+  function openingSound(){
+    try{
+      var AC=window.AudioContext||window.webkitAudioContext; if(!AC)return;
+      var ctx=new AC(); if(ctx.state!=='running')ctx.resume();
+      var master=ctx.createGain(); master.gain.value=.9;
+      var dly=ctx.createDelay(); dly.delayTime.value=.3;
+      var fb=ctx.createGain(); fb.gain.value=.4;
+      var wet=ctx.createGain(); wet.gain.value=.42;
+      dly.connect(fb); fb.connect(dly); master.connect(dly); dly.connect(wet);
+      wet.connect(ctx.destination); master.connect(ctx.destination);
+      var t0=ctx.currentTime+.05;
+      function bell(f,t,v){
+        [1,2,3,4.2].forEach(function(h,i){
+          var o=ctx.createOscillator(),g=ctx.createGain();
+          o.type='sine';o.frequency.value=f*h;
+          g.gain.setValueAtTime(0,t);
+          g.gain.linearRampToValueAtTime(v/(h*h),t+.01);
+          g.gain.exponentialRampToValueAtTime(.0005,t+3/(i+1));
+          o.connect(g);g.connect(master);o.start(t);o.stop(t+3.1);
+        });
+      }
+      function pad(freqs,t,dur){
+        freqs.forEach(function(f,i){
+          var o=ctx.createOscillator(),g=ctx.createGain();
+          o.type=i%2?'triangle':'sine';o.frequency.value=f;
+          g.gain.setValueAtTime(0,t);
+          g.gain.linearRampToValueAtTime(.06,t+dur*.45);
+          g.gain.linearRampToValueAtTime(0,t+dur);
+          o.connect(g);g.connect(master);o.start(t);o.stop(t+dur+.1);
+        });
+      }
+      function whoosh(t,dur,v){
+        var len=ctx.sampleRate,buf=ctx.createBuffer(1,len,ctx.sampleRate),d=buf.getChannelData(0);
+        for(var i=0;i<len;i++)d[i]=Math.random()*2-1;
+        var s=ctx.createBufferSource();s.buffer=buf;s.loop=true;
+        var f=ctx.createBiquadFilter();f.type='bandpass';f.Q.value=1.2;
+        f.frequency.setValueAtTime(300,t);f.frequency.exponentialRampToValueAtTime(3500,t+dur);
+        var g=ctx.createGain();
+        g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+dur*.4);g.gain.linearRampToValueAtTime(0,t+dur);
+        s.connect(f);f.connect(g);g.connect(master);s.start(t);s.stop(t+dur+.1);
+      }
+      whoosh(t0,.9,.12);
+      pad([110,164.8,220,261.6],t0,7);
+      [440,523.25,659.25,880,1046.5].forEach(function(f,i){bell(f,t0+.5+i*.16,.30)});
+      [440,523.25,659.25,587.33,523.25,440].forEach(function(f,i){bell(f,t0+1.7+i*.46,.26)});
+      [440,523.25,659.25,880].forEach(function(f,i){bell(f,t0+4.3+i*.07,.22)});
+      master.gain.setValueAtTime(.9,t0+6.2);
+      master.gain.linearRampToValueAtTime(0,t0+8);
+      setTimeout(function(){try{ctx.close()}catch(e){}},9500);
+    }catch(e){}
+  }
+
+  document.getElementById('cover').addEventListener('click',function(){
+    openingSound();
+    this.classList.add('gone');
+    setTimeout(function(){document.body.classList.remove('lock');reveal();},900);
+  });
+})();
+</script>
+</body>
+</html>
